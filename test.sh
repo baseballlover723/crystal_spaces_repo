@@ -1,20 +1,38 @@
 #!/bin/bash
 
-cd without_spaces
-echo "testing without spaces"
+cd without_spaces/without_spaces_project
+echo "testing real directory without spaces"
 shards build
-crystal spec
-echo "done testing without spaces (successfully)"
-
-cd ..
+crystal spec && echo "done testing real directory without spaces (successfully)"
+cd ../..
 
 echo ""
 echo "*******************************"
 echo ""
 
-cd with\ spaces
-echo "testing with spaces"
+cd with\ spaces/with_spaces_project
+echo "testing real directory with spaces"
 shards build
-crystal spec
-echo "done testing with spaces (successfully)"
+crystal spec && echo "done testing real directory with spaces (successfully)"
+cd ../..
+
+echo ""
+echo "*******************************"
+echo ""
+
+cd symlinked_without_spaces/without_spaces_project
+echo "testing symlinked directory without spaces"
+shards build
+crystal spec && echo "done testing symlinked directory without spaces (successfully)"
+cd ../..
+
+echo ""
+echo "*******************************"
+echo ""
+
+cd symlinked_with_spaces/with_spaces_project
+echo "testing symlinked directory with spaces"
+shards build
+crystal spec && echo "done testing symlinked directory with spaces (successfully)"
+cd ..
 
